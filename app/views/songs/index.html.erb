@@ -1,0 +1,13 @@
+<% if @artist.nil? %>
+   <h1>All Songs</h1>
+<% else %>
+  <h1>Songs for <%= @artist.name  %></h1>
+<% end %>
+<% @songs.each do |song| %>
+  <%= link_to song.title, song_path(song) %>
+  <%= link_to "Delete", song_path(song), method: :delete %>
+<% end %>
+
+<% unless @artist.nil? %>
+  <%= link_to "New song", new_artist_song_path %>
+<% end %>
