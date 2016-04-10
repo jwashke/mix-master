@@ -6,7 +6,7 @@ RSpec.feature "User views index of all songs" do
     song2 = create(:song)
 
     visit songs_path
-        save_and_open_page
+
     expect(page).to have_content song1.title
     expect(page).to have_content song2.title
     expect(song1.title).to appear_before(song2.title)
